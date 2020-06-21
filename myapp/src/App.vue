@@ -1,32 +1,56 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="container">
+    <!-- <div class="box">
+      <header class="header">header</header>
+      <div class="content">content</div>
+    </div> -->
+    <router-view></router-view>
+    <Footer/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import Footer from './components/Footer'
+export default {
+  components: {
+    Footer
+  }
 }
+</script>
 
-#nav {
-  padding: 30px;
+<style lang="scss">
+* { padding: 0; margin: 0; list-style: none; text-decoration: none;}
+html, body, .container { width: 100%;height: 100%;}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+html {
+  font-size: 26.67vw;
+}
+@media screen and (min-width: 639px) {
+  html {
+    font-size: 100px;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  .box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    .header {
+      height: 0.44rem;
+      background-color: #f66;
     }
+    .content {
+      flex: 1;
+      overflow: auto;
+    }
+  }
+  .footer {
+    height: 0.5rem;
+    background-color: #efefef;
   }
 }
 </style>
